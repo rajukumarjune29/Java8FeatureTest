@@ -16,7 +16,9 @@ public class StreamExample {
 			System.out.print(e+"\t");
 		});
 		
-		List<Integer> l=(ArrayList<Integer>) al.stream().filter(e->e%2==0).collect(Collectors.toList());
+		List<Integer> l=(ArrayList<Integer>) al.stream().filter(e->e%2==0).
+				map(e->e+100)
+				.collect(Collectors.toList());
 		System.out.println();
 		l.forEach(e->{
 			System.out.print(e+"\t");
