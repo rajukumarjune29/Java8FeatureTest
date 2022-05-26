@@ -1,6 +1,7 @@
 package com.stream.api;
 
 import java.util.ArrayList;
+import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,6 +24,14 @@ public class StreamExample {
 		l.forEach(e->{
 			System.out.print(e+"\t");
 		});
+		System.out.println();
+		IntSummaryStatistics sum=al.stream().collect(Collectors.summarizingInt(e->e));
+		System.out.println(sum.getMax());
+		System.out.println(sum.getAverage());
+		System.out.println(sum.getMin());
+		System.out.println(sum.getSum());
+		System.out.println(sum.getCount());
 		
+		System.out.println(al.stream().collect(Collectors.groupingBy(e->e)));
 	}
 }
